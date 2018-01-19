@@ -260,29 +260,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
             /* IMPLEMENT THIS METHOD! */
 
+            if(isBalanced(root))
+                return true;
 
-        return false;
+            return false;
         }
 
 
-        private static Stack iterate(BinarySearchTree bst)
-        {
-
-            Stack<BinarySearchTree> nodes = new Stack<>();
-            nodes.push(bst);
-            while (!nodes.isEmpty()) {
-                BinarySearchTree node = nodes.pop();
-                if (node == null)
-                    continue;
-                else {
-                    //System.out.println(node.node);
-                   // nodes.push(node.rightChild);
-                   // nodes.push(node.leftChild);
-                }
-            }
-            return nodes;
-
-        }
 
 
     }
