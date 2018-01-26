@@ -1,5 +1,6 @@
 
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 /*
@@ -58,10 +59,7 @@ public class LinkedListUtils {
            }
 
        }
-       else if(list == null)
-       {
-           System.exit(0);
-       }
+
 
     }
 
@@ -71,48 +69,17 @@ public class LinkedListUtils {
 
 		/* IMPLEMENT THIS METHOD! */
 
-
-
-
-        if (list != null)
+        if(list != null && !list.isEmpty())
         {
+            int counter = 0;
 
-            while(N > 0)
-            {
-                if(list.isEmpty()==false)
-                {
-                    //For refrence purposes this selects the first element of the
-                    //list as the longest element
-                    String longest = list.get(0);
-
-
-                    //This part then selects the actual longest element
-                    for (int i = 0 ; i < list.size()-1;i++ ) {
-
-                        if(list.get(i+1).compareTo(list.get(i)) > 0 ) {
-                            longest = list.get(i+1);
-                        }
-                    }
-
-                    for (int i = list.size() -1; i >=0; i-- ) {
-
-                        if(longest.equals(list.get(i))) {
-                            list.remove(i);
-                        }
-
-
-
-                    }
-
-
-
-                    N--;
-
+            while(counter < N && !list.isEmpty()) {
+                //This part then selects the actual longest element
+                String l = Collections.max(list);
+                while (list.contains(l)) {
+                    list.remove(l);
                 }
-                else{
-                    break;
-                }
-
+                    counter++;
             }
 
         }
@@ -121,13 +88,17 @@ public class LinkedListUtils {
     }
 
 
+
+
+
+
     public static boolean containsSubsequence(LinkedList<Integer> one, LinkedList<Integer> two) {
 
 		/* IMPLEMENT THIS METHOD! */
 
-        try {
 
-                if (one.isEmpty() == false && two.isEmpty() == false) {
+
+                if (one != null && two != null && !one.isEmpty() && !two.isEmpty()) {
 
 
                     LinkedList<Integer> ll = new LinkedList<>(); //list to sort
@@ -167,17 +138,9 @@ public class LinkedListUtils {
                     }
 
                 }
-
-                if(one.isEmpty() || two.isEmpty())
-                {
-                    return false;
-                }
+                else
 
 
-
-        }catch(NullPointerException ex) {
-            System.out.println(ex);
-        }
 
 
 
